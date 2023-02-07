@@ -8,11 +8,13 @@ async function controlEvents() {
 
   loading.textContent = 'Loading...';
   card.append(loading);
-  const data = await getData('Rosario');
-
-  card.removeChild(loading);
-  weather.textContent = data.weather;
-  mainTemperature.textContent = data.temp;
+  const data = await getData('41414141');
+  if (data) {
+    card.removeChild(loading);
+    weather.textContent = data.weather;
+    mainTemperature.textContent = data.temp;
+  }
+  loading.textContent = 'ERROR';
 }
 
 export default controlEvents;
