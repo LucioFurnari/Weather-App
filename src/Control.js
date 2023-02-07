@@ -1,16 +1,32 @@
-import { fetchAPI } from "./Fetch"
+import fetchAPI from './Fetch';
 
 async function getData(location) {
-  let data = await fetchAPI(location);
+  const data = await fetchAPI(location);
   console.log(data);
-  if(data.cod != "400") {
-    let newData = {
-      weather: data.weather,
-    }
-    return newData
-  } else {
-    console.log("Error");
+  if (data.cod !== '400') {
+    const [{ main: weather, description: weatherDescription }] = data.weather;
+    const { deg: windDeg, speed: windSpeed } = data.wind;
+    const {
+      temp,
+      temp_max: tempMax,
+      temp_min: tempMin,
+      humidity,
+    } = data.main;
+    const newData = {
+      weather,
+      temp,
+      tempMax,
+      tempMin,
+      humidity,
+      windDeg,
+      windSpeed,
+      weatherDescription,
+    };
+    console.log(newData);
+    return newData;
   }
+  console.log('Error');
+  return false;
 }
 
-export {getData}
+export default getData;
