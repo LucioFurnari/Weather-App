@@ -1,3 +1,3 @@
-import { getData } from "./Control";
+import getData from './Control';
 
-getData("")
+getData('');
