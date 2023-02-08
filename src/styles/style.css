@@ -48,6 +48,10 @@ table {
 }
 
 /*|-----------------------------------------------------------------------------------------|*/
+:root {
+	--clearSky: url(../images/clear_sky.jpg);
+}
+
 
 body{
 	height: 100vh;
@@ -58,10 +62,21 @@ body{
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+
+	background-image: var(--clearSky);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 .card {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: 500px;
 	height: 500px;
 	border: 1px solid black;
+}
+.main-temperature {
+	display: block;
+	text-align: center;
 }
