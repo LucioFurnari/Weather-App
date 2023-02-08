@@ -1,0 +1,23 @@
+.clear-bg {
+  background-image: url('../images/clear_sky.jpg');
+  /* background-image: var(--clearSky); */
+}
+.cloud-bg {
+  background-image: url('../images/clouds.jpg');
+  /* background-image: var(--cloudSky); */
+}
+.rain-bg {
+  background-image: url('../images/rain.jpg');
+}
+.thunder-bg {
+  background-image: url('../images/thunderstorm.jpg');
+}
+.mist-bg {
+  background-image: url('../images/mist.jpg');
+}
+.drizzle-bg {
+  background-image: url('../images/drizzle.jpg');
+}
+.snow-bg {
+  background-image: url('../images/snow.jpg');
+}
