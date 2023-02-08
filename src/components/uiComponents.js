@@ -1,21 +1,22 @@
+import temperatureSection from './tempComponent';
+
 export function weatherCard() {
   const card = document.createElement('div');
   const weather = document.createElement('p');
-  const mainTemperature = document.createElement('p');
   const cityForm = document.createElement('form');
   const cityInput = document.createElement('input');
   const submitButton = document.createElement('button');
+  const tempSection = temperatureSection();
 
   card.classList.add('card');
   weather.classList.add('weather');
-  mainTemperature.classList.add('main-temperature');
   cityForm.classList.add('city-form');
   cityInput.classList.add('city-input');
 
   submitButton.textContent = 'Submit';
 
   cityForm.append(cityInput, submitButton);
-  card.append(cityForm, weather, mainTemperature);
+  card.append(cityForm, weather, tempSection);
 
   const root = document.querySelector('#root');
   root.append(card);
