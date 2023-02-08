@@ -20,8 +20,8 @@ async function getData(location) {
       windDeg,
       windSpeed,
       weatherDescription,
+      timezone: new Date(data.timezone * 1000).toISOString().slice(11, 19),
     };
-    console.log(newData);
     return newData;
   }
   return false;
