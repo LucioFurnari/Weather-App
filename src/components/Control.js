@@ -1,12 +1,13 @@
 import getData from '../Data';
+import changeBackground from './changeBackground';
 import { loadingComponent } from './uiComponents';
 
 async function controlEvents() {
   const card = document.querySelector('.card');
   const weather = document.querySelector('.weather');
   const currentTemp = document.querySelector('.main-temperature');
-  const minTemp = document.querySelector('.min-temp');
-  const maxTemp = document.querySelector('.max-temp');
+  // const minTemp = document.querySelector('.min-temp');
+  // const maxTemp = document.querySelector('.max-temp');
   const cityForm = document.querySelector('.city-form');
   const loading = loadingComponent();
 
@@ -16,8 +17,8 @@ async function controlEvents() {
     card.removeChild(loading);
     weather.textContent = data.weather;
     currentTemp.textContent = `${data.temp} C°`;
-    minTemp.textContent = `${data.tempMin} C°`;
-    maxTemp.textContent = `${data.tempMax} C°`;
+
+    changeBackground(data.weather);
   }
 
   cityForm.addEventListener('submit', async (e) => {
@@ -31,6 +32,8 @@ async function controlEvents() {
       card.removeChild(loading);
       weather.textContent = newData.weather;
       currentTemp.textContent = newData.temp;
+
+      changeBackground(newData.weather);
     }
   });
 }
