@@ -48,6 +48,8 @@ table {
 }
 
 /*|-----------------------------------------------------------------------------------------|*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
 :root {
 	--clearSky: url(../images/clear_sky.jpg);
 	--cloudSky: url(../images/clouds.jpg);
@@ -60,6 +62,7 @@ table {
 body{
 	height: 100vh;
 	box-sizing: border-box;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 #root {
 	display: flex;
