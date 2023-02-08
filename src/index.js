@@ -1,3 +1,8 @@
-import getData from './Control';
+import { weatherCard } from './components/uiComponents';
+import controlEvents from './components/Control';
+import './styles/style.css';
 
-getData('');
+document.addEventListener('DOMContentLoaded', () => {
+  weatherCard();
+  controlEvents();
+});
