@@ -50,6 +50,9 @@ table {
 /*|-----------------------------------------------------------------------------------------|*/
 :root {
 	--clearSky: url(../images/clear_sky.jpg);
+	--cardBackground: rgba(255,255,255,0.5);
+	--cardShadow: rgba(0, 0, 0, 0.25);
+	--cardBorder: rgba(255, 255, 255, 0.3);
 }
 
 
@@ -74,7 +77,12 @@ body{
 	align-items: center;
 	width: 500px;
 	height: 500px;
-	border: 1px solid black;
+
+	backdrop-filter: blur(20px);
+	background-color: var(--cardBackground);
+	border: 1px solid var(--cardBorder);
+	border-radius: 8px;
+	box-shadow: 0px 1px 12px var(--cardShadow);
 }
 .main-temperature {
 	display: block;
