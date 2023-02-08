@@ -50,6 +50,7 @@ table {
 /*|-----------------------------------------------------------------------------------------|*/
 :root {
 	--clearSky: url(../images/clear_sky.jpg);
+	--cloudSky: url(../images/clouds.jpg);
 	--cardBackground: rgba(255,255,255,0.5);
 	--cardShadow: rgba(0, 0, 0, 0.25);
 	--cardBorder: rgba(255, 255, 255, 0.3);
@@ -66,7 +67,6 @@ body{
 	align-items: center;
 	height: 100%;
 
-	background-image: var(--clearSky);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
