@@ -21,6 +21,8 @@ async function getData(location) {
       windSpeed,
       weatherDescription,
       timezone: new Date(data.timezone * 1000).toISOString().slice(11, 19),
+      city: data.name, // Check for the Geocoding API to get the exact location
+      country: data.sys.country, // Check for the Geocoding API to get the exact location
     };
     return newData;
   }
