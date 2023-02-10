@@ -1,8 +1,8 @@
-import fetchAPI from './Fetch';
+import { fetchAPI } from './Fetch';
 
 async function getData(location) {
   const data = await fetchAPI(location);
-  if (data.cod !== '404') {
+  if (data.cod !== '404' && data.cod !== '400') {
     const [{ main: weather, description: weatherDescription }] = data.weather;
     const { deg: windDeg, speed: windSpeed } = data.wind;
     const {
