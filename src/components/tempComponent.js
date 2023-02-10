@@ -5,7 +5,7 @@ function temperatureSection() {
   // const minTemperature = document.createElement('span');
   // const maxTemperature = document.createElement('span');
 
-  tempSection.classList.add('.temp-section');
+  tempSection.classList.add('temp-section');
   currentTemperature.classList.add('main-temperature');
   // minTemperature.classList.add('min-temp');
   // maxTemperature.classList.add('max-temp');
