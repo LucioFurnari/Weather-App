@@ -3,7 +3,7 @@ function cityComponent() {
   const cityName = document.createElement('p');
   const countryName = document.createElement('p');
 
-  container.classList.add('card-names-container');
+  container.classList.add('card-names-container', 'row');
   cityName.classList.add('card-name');
   countryName.classList.add('card-country');
 
