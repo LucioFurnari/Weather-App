@@ -1,5 +1,6 @@
 import temperatureSection from './tempComponent';
 import cityComponent from './namesComponent';
+import conditionsComponent from './conditionsComponent';
 
 export function weatherCard() {
   const card = document.createElement('div');
@@ -9,6 +10,7 @@ export function weatherCard() {
   const submitButton = document.createElement('button');
   const tempSection = temperatureSection();
   const citySection = cityComponent();
+  const conditionSection = conditionsComponent();
 
   card.classList.add('card');
   weather.classList.add('card-weather');
@@ -18,7 +20,7 @@ export function weatherCard() {
   submitButton.textContent = 'Submit';
 
   cityForm.append(cityInput, submitButton);
-  card.append(cityForm, weather, citySection, tempSection);
+  card.append(cityForm, weather, citySection, tempSection, conditionSection);
 
   const root = document.querySelector('#root');
   root.append(card);
