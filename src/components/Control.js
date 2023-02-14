@@ -1,6 +1,6 @@
 import getData from '../Data';
 import changeBackground from './changeBackground';
-import loadingComponent from './cardComponent';
+import loadingComponent from './uiComponents/loadingComponent';
 
 async function setUiContent(location = 'Pergamino') {
   const card = document.querySelector('.card');
