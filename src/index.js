@@ -1,4 +1,4 @@
-import { weatherCard } from './components/cardComponent';
+import weatherCard from './components/cardComponent';
 import loadUiContent from './components/Control';
 import './styles/style.css';
 import './styles/bgClass.css';
