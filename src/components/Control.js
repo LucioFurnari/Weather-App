@@ -2,7 +2,7 @@ import getData from '../Data';
 import changeBackground from './changeBackground';
 import loadingComponent from './cardComponent';
 
-async function setUi(location = 'Pergamino') {
+async function setUiContent(location = 'Pergamino') {
   const card = document.querySelector('.card');
   const cardWeather = document.querySelector('.card-weather');
   const cityName = document.querySelector('.card-name');
@@ -34,12 +34,12 @@ async function setUi(location = 'Pergamino') {
 async function searchCity(e) {
   const cardInput = document.querySelector('.card-input');
   e.preventDefault();
-  setUi(cardInput.value);
+  setUiContent(cardInput.value);
 }
 
-function loadUi() {
-  setUi();
+function loadUiContent() {
+  setUiContent();
   const cityForm = document.querySelector('.card-form');
   cityForm.addEventListener('submit', searchCity);
 }
-export default loadUi;
+export default loadUiContent;
