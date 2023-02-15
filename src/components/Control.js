@@ -11,6 +11,7 @@ async function setUiContent(location = 'Pergamino') {
 
   const loading = loadingComponent();
   card.append(loading);
+  card.classList.remove('loaded');
   const data = await getData(location);
   if (data) {
     card.classList.add('loaded');
