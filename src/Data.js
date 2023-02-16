@@ -1,4 +1,38 @@
-import { fetchAPI } from './Fetch';
+import { fetchAPI, newFetch } from './Fetch';
+
+function getHours(time) {
+  const actualDate = new Date().getHours();
+  const index = time.findIndex((date) => {
+    const tempTime = new Date(date).getHours();
+    if (tempTime === actualDate) {
+      return date;
+    }
+    return false;
+  });
+  return index;
+}
+async function newGetData(location) {
+  const data = await newFetch(location);
+  const {
+    time,
+    temperature_2m: actualTemperature,
+    apparent_temperature: apparentTemperature,
+    weathercode: weatherCode,
+    winddirection_10m: windDirection,
+    windspeed_10m: windSpeed,
+  } = data.hourly;
+  const actualTime = getHours(time);
+
+  const newData = {
+    actualTemperature: actualTemperature[actualTime],
+    apparentTemperature: apparentTemperature[actualTime],
+    weatherCode: weatherCode[actualTime],
+    windDirection: windDirection[actualTime],
+    windSpeed: windSpeed[actualTime],
+  };
+  console.log(newData);
+}
+newGetData('Pergamino');
 
 async function getData(location) {
   const data = await fetchAPI(location);
