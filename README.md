@@ -5,6 +5,7 @@ Technology used:
 - CSS
 - JS
 - ESLint
+- Webpack
 
 API used: 
 - openweathermap/geocoding-api
