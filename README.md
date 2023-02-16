@@ -1,14 +1,14 @@
 # Weather-App
 
 Technology used:
-HTML
-CSS
-JS
-ESLint
+- HTML
+- CSS
+- JS
+- ESLint
 
 API used: 
-openweathermap/geocoding-api
-open-meteo
+- openweathermap/geocoding-api
+- open-meteo
 
 TODO:
 - When the page is loaded show the data of the current city. ✔️
