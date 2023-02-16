@@ -21,6 +21,12 @@ async function newGetData(location) {
     winddirection_10m: windDirection,
     windspeed_10m: windSpeed,
   } = data.hourly;
+  const {
+    time: dailyTime,
+    temperature_2m_max: dailyTempMax,
+    temperature_2m_min: dailyTempMin,
+    weathercode: dailyWeatherCode,
+  } = data.daily;
   const actualTime = getHours(time);
 
   const newData = {
@@ -29,6 +35,10 @@ async function newGetData(location) {
     weatherCode: weatherCode[actualTime],
     windDirection: windDirection[actualTime],
     windSpeed: windSpeed[actualTime],
+    dailyTime,
+    dailyTempMax,
+    dailyTempMin,
+    dailyWeatherCode,
   };
   console.log(newData);
 }
