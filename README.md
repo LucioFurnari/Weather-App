@@ -11,12 +11,13 @@ API used:
 - openweathermap/geocoding-api
 - open-meteo
 
+<!-- ❌ ✔️ ⭕ ❓ -->
 TODO:
 - When the page is loaded show the data of the current city. ✔️
 
 - Organize the data from the new api. ❌
-
-- Create weather card for each day get from the api. ❌
+- Prevent to submit a wrong city name or empty input. ❌
+- Create weather card for each day get from the api. ✔️
   - Organize the data in the weather card for the actual time or (select time). ❌
 - Add a icon that show the current weather. ❌
 
