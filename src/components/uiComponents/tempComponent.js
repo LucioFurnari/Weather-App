@@ -1,4 +1,4 @@
-function temperatureSection(max, min) {
+function temperatureSection(temp, max, min) {
   const tempSection = document.createElement('div');
   const tempSeparation = document.createElement('div');
   const currentTemperature = document.createElement('span');
@@ -7,8 +7,9 @@ function temperatureSection(max, min) {
 
   tempSection.classList.add('temp-section');
   currentTemperature.classList.add('main-temperature');
-  maxTemperature.textContent = max;
-  minTemperature.textContent = min;
+  currentTemperature.textContent = `${temp} C°`;
+  maxTemperature.textContent = `${max} C°`;
+  minTemperature.textContent = `${min} C°`;
   minTemperature.classList.add('min-temp');
   maxTemperature.classList.add('max-temp');
 
