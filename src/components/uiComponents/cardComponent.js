@@ -2,21 +2,23 @@ import temperatureSection from './tempComponent';
 import cityComponent from './namesComponent';
 import conditionsComponent from './conditionsComponent';
 
-function weatherCard() {
+function weatherCard(props) {
+  const { dayOfTheWeek, tempMax, tempMin } = props;
   const card = document.createElement('div');
+  const dayOfWeek = document.createElement('p');
   const weather = document.createElement('p');
 
-  const tempSection = temperatureSection();
+  const tempSection = temperatureSection(tempMax, tempMin);
   const citySection = cityComponent();
   const conditionSection = conditionsComponent();
 
   card.classList.add('card');
+  dayOfWeek.textContent = dayOfTheWeek;
   weather.classList.add('card-weather');
 
-  card.append(weather, citySection, tempSection, conditionSection);
+  card.append(dayOfWeek, weather, citySection, tempSection, conditionSection);
 
-  const root = document.querySelector('#root');
-  root.append(card);
+  return card;
 }
 
 export default weatherCard;
