@@ -22,8 +22,13 @@ async function setUiContent(location = 'Pergamino') {
       dayOfWeek
     } = data;
     changeBackground(dailyWeatherCode[0]);
-    dailyTime.map((day) => {
-      const card = weatherCard();
+    dailyTime.map((day, index) => {
+      const props = {
+        dayOfTheWeek: dayOfWeek[index],
+        tempMax: dailyTempMax[index],
+        tempMin: dailyTempMin[index],
+      };
+      const card = weatherCard(props);
       card.classList.add('loaded');
       main.append(card);
     });
