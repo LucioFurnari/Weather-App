@@ -3,12 +3,17 @@ import cityComponent from './namesComponent';
 import conditionsComponent from './conditionsComponent';
 
 function weatherCard(props) {
-  const { dayOfTheWeek, tempMax, tempMin } = props;
+  const {
+    dayOfTheWeek,
+    tempMax,
+    tempMin,
+    actualTemperature,
+  } = props;
   const card = document.createElement('div');
   const dayOfWeek = document.createElement('p');
   const weather = document.createElement('p');
 
-  const tempSection = temperatureSection(tempMax, tempMin);
+  const tempSection = temperatureSection(actualTemperature, tempMax, tempMin);
   const citySection = cityComponent();
   const conditionSection = conditionsComponent();
 
