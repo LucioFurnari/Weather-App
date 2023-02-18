@@ -1,6 +1,6 @@
 function loadingComponent() {
-  const loading = document.createElement('p');
-  loading.textContent = 'Loading...';
+  const loading = document.createElement('div');
+  loading.classList.add('lds-dual-ring');
   return loading;
 }
 
