@@ -5,6 +5,8 @@ import conditionsComponent from './conditionsComponent';
 function weatherCard(props) {
   const {
     dayOfTheWeek,
+    dayNumber,
+    month,
     tempMax,
     tempMin,
     actualTemperature,
@@ -18,7 +20,7 @@ function weatherCard(props) {
   const conditionSection = conditionsComponent();
 
   card.classList.add('card');
-  dayOfWeek.textContent = dayOfTheWeek;
+  dayOfWeek.textContent = `${dayOfTheWeek} ${dayNumber} ${month}`;
   weather.classList.add('card-weather');
 
   card.append(dayOfWeek, weather, citySection, tempSection, conditionSection);
