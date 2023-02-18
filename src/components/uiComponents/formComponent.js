@@ -1,4 +1,4 @@
-function formSection() {
+function formComponent() {
   const cityForm = document.createElement('form');
   const cityInput = document.createElement('input');
   const submitButton = document.createElement('button');
@@ -11,4 +11,4 @@ function formSection() {
   return cityForm;
 }
 
-export default formSection;
+export default formComponent;
