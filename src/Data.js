@@ -14,12 +14,82 @@ function getHours(time) {
 function getDays(date) {
   const listOfDays = [];
   const actualHour = new Date().getHours();
-  date.map(day => {
+  date.map((day) => {
     const newDate = new Date(`${day} ${actualHour}:00:00`);
     const newDay = newDate.getDay();
     listOfDays.push(newDay);
+    return false;
   });
   return listOfDays;
+}
+function getDate(date) {
+  const listOfDate = [];
+  const actualHour = new Date().getHours();
+  date.map((day) => {
+    const newDate = new Date(`${day} ${actualHour}:00:00`);
+    const numberDate = newDate.getDate();
+    listOfDate.push(numberDate);
+    return false;
+  });
+  return listOfDate;
+}
+function getMonths(date) {
+  const listOfMonths = [];
+  const actualHour = new Date().getHours();
+  date.map((day) => {
+    const newDate = new Date(`${day} ${actualHour}:00:00`);
+    const newDay = newDate.getMonth();
+    listOfMonths.push(newDay);
+    return false;
+  });
+  return listOfMonths;
+}
+function monthList(date) {
+  const months = [];
+  date.map((month) => {
+    switch (month) {
+      case 0:
+        months.push('January');
+        break;
+      case 1:
+        months.push('February');
+        break;
+      case 2:
+        months.push('March');
+        break;
+      case 3:
+        months.push('April');
+        break;
+      case 4:
+        months.push('May');
+        break;
+      case 5:
+        months.push('June');
+        break;
+      case 6:
+        months.push('July');
+        break;
+      case 7:
+        months.push('August');
+        break;
+      case 8:
+        months.push('September');
+        break;
+      case 9:
+        months.push('October');
+        break;
+      case 10:
+        months.push('November');
+        break;
+      case 11:
+        months.push('December');
+        break;
+      default:
+        break;
+    }
+    return false;
+  });
+  return months;
 }
 function dayOfTheWeek(date) {
   const dayOfWeek = [];
@@ -49,11 +119,13 @@ function dayOfTheWeek(date) {
       default:
         break;
     }
+    return false;
   });
   return dayOfWeek;
 }
 async function getData(location) {
   const data = await fetchAPI(location);
+  console.log(data);
   const {
     time,
     temperature_2m: actualTemperature,
@@ -72,6 +144,9 @@ async function getData(location) {
   const actualTime = getHours(time);
   const listOfDays = getDays(dailyTime);
   const dayOfWeek = dayOfTheWeek(listOfDays);
+  const listOfMonths = getMonths(dailyTime);
+  const calendarYear = monthList(getMonths(dailyTime));
+  const numberDate = getDate(dailyTime);
 
   const newData = {
     actualTemperature: actualTemperature[actualTime],
@@ -85,38 +160,12 @@ async function getData(location) {
     dailyWeatherCode,
     listOfDays,
     dayOfWeek,
+    listOfMonths,
+    numberDate,
+    calendarYear,
   };
   console.log(newData);
   return newData;
 }
-
-// async function getData(location) {
-//   const data = await fetchAPI(location);
-//   if (data.cod !== '404' && data.cod !== '400') {
-//     const [{ main: weather, description: weatherDescription }] = data.weather;
-//     const { deg: windDeg, speed: windSpeed } = data.wind;
-//     const {
-//       temp,
-//       temp_max: tempMax,
-//       temp_min: tempMin,
-//       humidity,
-//     } = data.main;
-//     const newData = {
-//       weather,
-//       temp,
-//       tempMax,
-//       tempMin,
-//       humidity,
-//       windDeg,
-//       windSpeed,
-//       weatherDescription,
-//       timezone: new Date(data.timezone * 1000).toISOString().slice(11, 19),
-//       city: data.name, // Check for the Geocoding API to get the exact location
-//       country: data.sys.country, // Check for the Geocoding API to get the exact location
-//     };
-//     return newData;
-//   }
-//   return false;
-// }
 
 export default getData;
