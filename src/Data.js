@@ -2,14 +2,14 @@ import { fetchAPI } from './Fetch';
 
 function getHours(time) {
   const actualDate = new Date().getHours();
-  const index = time.findIndex((date) => {
+  const list = [];
+  time.forEach((date, index) => {
     const tempTime = new Date(date).getHours();
     if (tempTime === actualDate) {
-      return date;
+      list.push(index);
     }
-    return false;
   });
-  return index;
+  return list;
 }
 function getDays(date) {
   const listOfDays = [];
@@ -123,9 +123,22 @@ function dayOfTheWeek(date) {
   });
   return dayOfWeek;
 }
+function getActualData(arr, indexArr) {
+  const newArr = [];
+  arr.forEach((elem,index) => {
+    indexArr.forEach((i) => {
+      if (index === i) {
+        newArr.push(elem);
+      }
+    });
+  });
+  return newArr;
+}
 async function getData(location) {
-  const data = await fetchAPI(location);
+  const returnedData = await fetchAPI(location);
+  const { data, geoData } = returnedData;
   console.log(data);
+  const [{ country, name, state }] = geoData;
   const {
     time,
     temperature_2m: actualTemperature,
@@ -133,6 +146,7 @@ async function getData(location) {
     weathercode: weatherCode,
     winddirection_10m: windDirection,
     windspeed_10m: windSpeed,
+    relativehumidity_2m: humidity,
   } = data.hourly;
   const {
     time: dailyTime,
@@ -142,18 +156,27 @@ async function getData(location) {
   } = data.daily;
 
   const actualTime = getHours(time);
+  console.log(actualTime);
   const listOfDays = getDays(dailyTime);
+  console.log(listOfDays);
   const dayOfWeek = dayOfTheWeek(listOfDays);
   const listOfMonths = getMonths(dailyTime);
   const calendarYear = monthList(getMonths(dailyTime));
   const numberDate = getDate(dailyTime);
 
+  const actualData = getActualData(actualTemperature, actualTime);
+  console.log(actualData);
+
   const newData = {
-    actualTemperature: actualTemperature[actualTime],
-    apparentTemperature: apparentTemperature[actualTime],
-    weatherCode: weatherCode[actualTime],
-    windDirection: windDirection[actualTime],
-    windSpeed: windSpeed[actualTime],
+    country,
+    name,
+    state,
+    actualTemperature: getActualData(actualTemperature, actualTime),
+    apparentTemperature: getActualData(apparentTemperature, actualTime),
+    weatherCode: getActualData(weatherCode, actualTime),
+    windDirection: getActualData(windDirection, actualTime),
+    windSpeed: getActualData(windSpeed, actualTime),
+    humidity: getActualData(humidity, actualTime),
     dailyTime,
     dailyTempMax,
     dailyTempMin,
