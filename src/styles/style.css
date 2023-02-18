@@ -109,12 +109,15 @@ body{
 	font-size: 1.5rem;
 }
 .temp-section {
-	margin-top: 8rem ;
+	text-align: center;
+}
+.temp-section span {
+	font-size: 2rem;
+	padding: 0 0.6rem;
 }
 .main-temperature {
 	display: block;
 	text-align: center;
-	font-size: 4rem;
 }
 .condition-section img {
 	width: 2rem;
