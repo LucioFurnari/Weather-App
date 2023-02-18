@@ -125,7 +125,7 @@ function dayOfTheWeek(date) {
 }
 function getActualData(arr, indexArr) {
   const newArr = [];
-  arr.forEach((elem,index) => {
+  arr.forEach((elem, index) => {
     indexArr.forEach((i) => {
       if (index === i) {
         newArr.push(elem);
@@ -137,7 +137,6 @@ function getActualData(arr, indexArr) {
 async function getData(location) {
   const returnedData = await fetchAPI(location);
   const { data, geoData } = returnedData;
-  console.log(data);
   const [{ country, name, state }] = geoData;
   const {
     time,
@@ -156,16 +155,11 @@ async function getData(location) {
   } = data.daily;
 
   const actualTime = getHours(time);
-  console.log(actualTime);
   const listOfDays = getDays(dailyTime);
-  console.log(listOfDays);
   const dayOfWeek = dayOfTheWeek(listOfDays);
   const listOfMonths = getMonths(dailyTime);
   const calendarYear = monthList(getMonths(dailyTime));
   const numberDate = getDate(dailyTime);
-
-  const actualData = getActualData(actualTemperature, actualTime);
-  console.log(actualData);
 
   const newData = {
     country,
