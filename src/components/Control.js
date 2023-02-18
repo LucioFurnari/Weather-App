@@ -9,9 +9,13 @@ async function setUiContent(location = 'Pergamino') {
   const data = await getData(location);
   if (data) {
     const {
+      country,
+      name,
+      state,
       actualTemperature,
       apparentTemperature,
       weatherCode,
+      humidity,
       windDirection,
       windSpeed,
       dailyTime,
@@ -19,14 +23,27 @@ async function setUiContent(location = 'Pergamino') {
       dailyTempMin,
       dailyWeatherCode,
       listOfDays,
-      dayOfWeek
+      dayOfWeek,
+      numberDate,
+      calendarYear,
     } = data;
     changeBackground(dailyWeatherCode[0]);
     dailyTime.map((day, index) => {
       const props = {
+        country,
+        name,
+        state,
+        dayNumber: numberDate[index],
+        month: calendarYear[index],
         dayOfTheWeek: dayOfWeek[index],
         tempMax: dailyTempMax[index],
         tempMin: dailyTempMin[index],
+        actualTemperature: actualTemperature[index],
+        apparentTemperature: apparentTemperature[index],
+        weatherCode: weatherCode[index],
+        windDirection: windDirection[index],
+        windSpeed: windSpeed[index],
+        humidity: humidity[index],
       };
       const card = weatherCard(props);
       card.classList.add('loaded');
