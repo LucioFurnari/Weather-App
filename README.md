@@ -43,10 +43,6 @@ TODO:
 - Change the color of the card depending of the weather. ❌
 
 - Make responsive the page. ❌
-
-- // Check for the Geocoding API to get the exact location
-- // Separate the card components in modules
-
 <!-- ❌ ✔️ ⭕ ❓ -->
 
 Images used:
