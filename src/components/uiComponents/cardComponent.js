@@ -3,15 +3,20 @@ import cityComponent from './namesComponent';
 import conditionsComponent from './conditionsComponent';
 
 function getWeather(code) {
-  let weather;
+  const weather = {
+    weatherName: '',
+    weatherIcon: '',
+  };
   switch (code) {
     case 0:
-      weather = 'Clear';
+      weather.weatherName = 'Clear';
+      weather.weatherIcon = 'wi-day-sunny';
       break;
     case 1:
     case 2:
     case 3:
-      weather = 'Clouds';
+      weather.weatherName = 'Clouds';
+      weather.weatherIcon = 'wi-cloudy';
       break;
     case 61:
     case 63:
@@ -21,23 +26,27 @@ function getWeather(code) {
     case 80:
     case 81:
     case 82:
-      weather = 'Rain';
+      weather.weatherName = 'Rain';
+      weather.weatherIcon = 'wi-rain';
       break;
     case 95:
     case 96:
     case 99:
-      weather = 'Thunder';
+      weather.weatherName = 'Thunderstorm';
+      weather.weatherIcon = 'wi-thunderstorm';
       break;
     case 45:
     case 48:
-      weather = 'Mist';
+      weather.weatherName = 'Fog';
+      weather.weatherIcon = 'wi-fog';
       break;
     case 51:
     case 53:
     case 55:
     case 56:
     case 57:
-      weather = 'Drizzle';
+      weather.weatherName = 'Drizzle';
+      weather.weatherIcon = 'wi-sleet';
       break;
     case 71:
     case 73:
@@ -45,7 +54,8 @@ function getWeather(code) {
     case 77:
     case 85:
     case 86:
-      weather = 'Snow';
+      weather.weatherName = 'Snow';
+      weather.weatherIcon = 'wi-snow';
       break;
     default:
       break;
@@ -82,7 +92,11 @@ function weatherCard(props) {
   dayOfWeek.textContent = `${dayOfTheWeek} ${dayNumber} ${month}`;
   weather.classList.add('card-weather');
 
-  weather.textContent = getWeather(weatherCode);
+  const wObjet = getWeather(weatherCode);
+  weather.innerHTML = `
+    <p>${wObjet.weatherName}</p>
+    <i class="wi ${wObjet.weatherIcon}"></i>
+  `;
 
   card.append(dayOfWeek, weather, citySection, tempSection, conditionSection);
 
