@@ -5,6 +5,8 @@ import weatherCard from './uiComponents/cardComponent';
 
 async function setUiContent(location = 'Pergamino') {
   const main = document.querySelector('main');
+  const loaded = loadingComponent();
+  main.append(loaded);
 
   const data = await getData(location);
   if (data) {
@@ -21,14 +23,16 @@ async function setUiContent(location = 'Pergamino') {
       dailyTime,
       dailyTempMax,
       dailyTempMin,
-      dailyWeatherCode,
-      listOfDays,
       dayOfWeek,
       numberDate,
       calendarYear,
     } = data;
-    changeBackground(dailyWeatherCode[0]);
-    dailyTime.map((day, index) => {
+
+    changeBackground(weatherCode[0]);
+    while (main.firstChild) {
+      main.removeChild(main.firstChild);
+    }
+    dailyTime.forEach((day, index) => {
       const props = {
         country,
         name,
@@ -45,24 +49,11 @@ async function setUiContent(location = 'Pergamino') {
         windSpeed: windSpeed[index],
         humidity: humidity[index],
       };
+
       const card = weatherCard(props);
       card.classList.add('loaded');
       main.append(card);
     });
-    // const card = weatherCard();
-    // main.append(card);
-    // const cardWeather = document.querySelector('.card-weather');
-    // const cityName = document.querySelector('.card-name');
-    // const countryName = document.querySelector('.card-country');
-    // const currentTemp = document.querySelector('.main-temperature');
-    // card.classList.add('loaded');
-    // // card.removeChild(loading);
-
-    // cityName.textContent = city;
-    // countryName.textContent = country;
-    // cardWeather.textContent = weather;
-    // currentTemp.textContent = `${temp} C°`;
-
   }
 }
 
