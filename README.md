@@ -11,15 +11,18 @@ API used:
 - openweathermap/geocoding-api
 - open-meteo
 
+Libraries:
+- weather-icons ( erikflowers ) https://github.com/erikflowers/weather-icons
+
 <!-- ❌ ✔️ ⭕ ❓ -->
 TODO:
 - When the page is loaded show the data of the current city. ✔️
 
-- Organize the data from the new api. ❌
-- Prevent to submit a wrong city name or empty input. ❌
+- Organize the data from the new api. ⭕
+- Prevent to submit a wrong city name or empty input. ⭕
 - Create weather card for each day get from the api. ✔️
-  - Organize the data in the weather card for the actual time or (select time). ❌
-- Add a icon that show the current weather. ❌
+  - Organize the data in the weather card for the actual time or (select time). ⭕
+- Add a icon that show the current weather. ⭕
 
 - Create a graphics that show the temperature of all the day. ❌
   - Use svg path to add and connects lines.
