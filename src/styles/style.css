@@ -86,7 +86,7 @@ body{
 	grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
 	justify-items: center;
 	width: 100%;
-	gap: 10px;
+	gap: 1rem;
 }
 .card {
 	display: flex;
