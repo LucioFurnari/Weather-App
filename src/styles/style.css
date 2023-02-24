@@ -76,8 +76,17 @@ body{
 	background-size: cover;
 	background-position: center;
 }
+nav {
+	width: 100%;
+}
 .row {
 	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.column {
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
