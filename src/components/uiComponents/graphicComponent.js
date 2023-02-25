@@ -4,12 +4,14 @@ function createLines(arr) {
   const point = 100;
   const numberList = [];
   let line = 50;
+  let textLine = 0;
   arr.forEach((elem) => {
     const temp = point - elem;
-    const text = `<text x=${line} y=${temp}>${elem}</text>`;
+    const text = `<text x=${textLine} y=${temp}>${elem}</text>`;
     numberList.push(text);
     path += `${temp} L ${line} `;
     line += 50;
+    textLine += 50;
   });
   return { path, numberList };
 }
