@@ -8,7 +8,8 @@ function createLines(arr) {
   arr.forEach((elem) => {
     const temp = point - elem;
     const text = `<text x=${textLine} y=${temp}>${elem}</text>`;
-    numberList.push(text);
+    const circle = `<circle cx=${textLine} cy=${temp} r="4" fill="red"/>`;
+    numberList.push(text, circle);
     path += `${temp} L ${line} `;
     line += 50;
     textLine += 50;
