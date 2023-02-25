@@ -79,6 +79,9 @@ body{
 nav {
 	width: 100%;
 }
+svg text {
+	font-size: 1.2rem;
+}
 .row {
 	display: flex;
 	justify-content: center;
