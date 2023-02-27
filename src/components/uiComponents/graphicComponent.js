@@ -22,6 +22,9 @@ function createLines(arr, element) {
     circle.addEventListener('mouseover', (event) => {
       event.target.setAttribute('r', 10);
     });
+    circle.addEventListener('mouseleave', (event) => {
+      event.target.setAttribute('r', 4);
+    });
     element.append(textVector, circle);
     textLine += 50;
   });
