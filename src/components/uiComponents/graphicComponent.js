@@ -1,4 +1,3 @@
-const array = [27, 32, 38, 21, 27, 25, 24, 26];
 function createLines(arr, element) {
   const pathVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   element.append(pathVector);
@@ -32,18 +31,11 @@ function createLines(arr, element) {
   return { path };
 }
 
-function drawSvgGraphic() {
+function drawSvgGraphic(arr) {
   const svgGraphic = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  createLines(array, svgGraphic);
+  createLines(arr, svgGraphic);
   const graphicContainer = document.createElement('div');
   graphicContainer.classList.add('row');
-  // svgGraphic.innerHTML = `
-  // <svg width="100%" height="100">
-  //   <path d="M0 ${data.path}"
-  //   stroke="black" stroke-width="2" fill="none"/>
-  //   ${data.numberList}
-  // </svg>
-  // `;
   graphicContainer.append(svgGraphic);
   return graphicContainer;
 }
