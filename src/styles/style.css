@@ -79,8 +79,21 @@ body{
 nav {
 	width: 100%;
 }
+svg {
+	display: block;
+	padding: 1rem;
+	width: 100%;
+}
+svg path {
+	stroke: black;
+	stroke-width: 2;
+	fill: none;
+}
 svg text {
 	font-size: 1.2rem;
+}
+svg circle:hover ~ text {
+	font-size: 2rem;
 }
 .row {
 	display: flex;
