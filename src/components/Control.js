@@ -2,9 +2,11 @@ import getData from '../Data';
 import changeBackground from './changeBackground';
 import loadingComponent from './uiComponents/loadingComponent';
 import weatherCard from './uiComponents/cardComponent';
+import drawSvgGraphic from './uiComponents/graphicComponent';
 
 async function setUiContent(location = 'Pergamino') {
   const main = document.querySelector('main');
+  const nav = document.querySelector('nav');
   const loaded = loadingComponent();
   main.append(loaded);
 
@@ -14,6 +16,7 @@ async function setUiContent(location = 'Pergamino') {
       country,
       name,
       state,
+      hourlyTemperature,
       actualTemperature,
       apparentTemperature,
       weatherCode,
@@ -28,6 +31,7 @@ async function setUiContent(location = 'Pergamino') {
       calendarYear,
     } = data;
 
+    nav.append(drawSvgGraphic(hourlyTemperature));
     changeBackground(weatherCode[0]);
     while (main.firstChild) {
       main.removeChild(main.firstChild);
