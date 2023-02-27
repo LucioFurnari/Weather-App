@@ -1,31 +1,32 @@
 const array = [27, 32, 38, 21, 27, 25, 24, 26];
 function createLines(arr, element) {
-  let path = '';
+  const pathVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  element.append(pathVector);
+  let path = 'M10';
   const point = 100;
-  let numberList = [];
   let line = 50;
-  let textLine = 0;
+  let textLine = 10;
   arr.forEach((elem) => {
     const temp = point - elem;
-    const text = `<text x=${textLine} y=${temp}>${elem}</text>`;
+    path += ` ${temp} L ${line} `;
+    line += 50;
+    const textVector = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    textVector.setAttribute('x', textLine - 10);
+    textVector.setAttribute('y', temp - 10);
+    textVector.textContent = elem;
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    console.log(circle);
     circle.setAttribute('cx', textLine);
     circle.setAttribute('cy', temp);
     circle.setAttribute('r', 4);
     circle.setAttribute('fill', 'red');
-    // const circle = `<circle cx=${textLine} cy=${temp} r="4" fill="red"/>`;
     circle.addEventListener('mouseover', (event) => {
       event.target.setAttribute('r', 10);
     });
-    // numberList.push(text);
-    element.append(circle);
-    path += `${temp} L ${line} `;
-    line += 50;
+    element.append(textVector, circle);
     textLine += 50;
   });
-  numberList = numberList.join(' ');
-  return { path, numberList };
+  pathVector.setAttribute('d', `${path}`);
+  return { path };
 }
 
 function drawSvgGraphic() {
