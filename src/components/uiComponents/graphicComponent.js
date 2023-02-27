@@ -8,7 +8,7 @@ function createLines(arr, element) {
   let textLine = 10;
   arr.forEach((elem) => {
     const temp = point - elem;
-    path += ` ${temp} L ${line} `;
+    path += ` ${temp} L ${line + 10} `;
     line += 50;
     const textVector = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     textVector.setAttribute('x', textLine - 10);
