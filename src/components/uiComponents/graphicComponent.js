@@ -2,11 +2,15 @@ function createLines(arr, element) {
   const pathVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   element.append(pathVector);
   let path = 'M10';
-  const point = 100;
+  const point = 200;
   let line = 50;
   let textLine = 10;
   arr.forEach((elem) => {
-    const temp = point - elem;
+    let temp = point - parseInt(elem, 10);
+    if (elem > 30) {
+      temp -= 40;
+      path += ` ${temp} L ${line + 10} `;
+    }
     path += ` ${temp} L ${line + 10} `;
     line += 50;
     const textVector = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -33,6 +37,8 @@ function createLines(arr, element) {
 
 function drawSvgGraphic(arr) {
   const svgGraphic = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svgGraphic.setAttribute('height', 200);
+  svgGraphic.setAttribute('width', 1200);
   createLines(arr, svgGraphic);
   const graphicContainer = document.createElement('div');
   graphicContainer.classList.add('row');
