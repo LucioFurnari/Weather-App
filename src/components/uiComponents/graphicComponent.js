@@ -9,7 +9,7 @@ function createLines(arr, element) {
     let temp = point - parseInt(elem, 10);
     if (elem > 30) {
       temp -= 40;
-      path += ` ${temp} L ${line + 10} `;
+      path += ` ${temp} L ${line} `;
     }
     path += ` ${temp} L ${line + 10} `;
     line += 50;
