@@ -14,13 +14,20 @@ function getActualData(arr, indexArr) {
   });
   return newArr;
 }
-
+function getTempForHour(arr) {
+  const newArr = [];
+  for (let i = 0; i < 24; i += 1) {
+    newArr.push(arr[i]);
+  }
+  return newArr;
+}
 async function getData(location) {
   const returnedData = await fetchAPI(location);
   const { data, geoData } = returnedData;
   const [{ country, name, state }] = geoData;
   const {
     time,
+    temperature_2m: hourlyTemperature,
     temperature_2m: actualTemperature,
     apparent_temperature: apparentTemperature,
     weathercode: weatherCode,
@@ -46,6 +53,7 @@ async function getData(location) {
     country,
     name,
     state,
+    hourlyTemperature: getTempForHour(hourlyTemperature),
     actualTemperature: getActualData(actualTemperature, actualTime),
     apparentTemperature: getActualData(apparentTemperature, actualTime),
     weatherCode: getActualData(weatherCode, actualTime),
@@ -62,7 +70,7 @@ async function getData(location) {
     numberDate,
     calendarYear,
   };
-  console.log(newData);
+  console.table(newData);
   return newData;
 }
 
