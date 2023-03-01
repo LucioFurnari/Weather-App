@@ -15,7 +15,7 @@ function getWeather(code) {
     case 1:
     case 2:
     case 3:
-      weather.weatherName = 'Clouds';
+      weather.weatherName = 'Cloudy';
       weather.weatherIcon = 'wi-cloudy';
       break;
     case 61:
@@ -67,14 +67,12 @@ function weatherCard(props) {
   const {
     country,
     name,
-    state,
     dayOfTheWeek,
     dayNumber,
     month,
     tempMax,
     tempMin,
     actualTemperature,
-    apparentTemperature,
     weatherCode,
     windDirection,
     windSpeed,
@@ -92,10 +90,10 @@ function weatherCard(props) {
   dayOfWeek.textContent = `${dayOfTheWeek} ${dayNumber} ${month}`;
   weather.classList.add('card-weather');
 
-  const wObjet = getWeather(weatherCode);
+  const weatherObjet = getWeather(weatherCode);
   weather.innerHTML = `
-    <p>${wObjet.weatherName}</p>
-    <i class="wi ${wObjet.weatherIcon}"></i>
+    <p>${weatherObjet.weatherName}</p>
+    <i class="wi ${weatherObjet.weatherIcon}"></i>
   `;
 
   card.append(dayOfWeek, weather, citySection, tempSection, conditionSection);
