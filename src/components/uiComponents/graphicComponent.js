@@ -7,9 +7,14 @@ function createLines(arr, element) {
   let textLine = 10;
   arr.forEach((elem) => {
     let temp = point - parseInt(elem, 10);
-    if (elem > 30) {
+    if (elem > 30 && elem < 35) {
       temp -= 40;
-      path += ` ${temp} L ${line} `;
+      path += ` ${temp} L ${line - 40} `;
+    } else if (elem >= 35) {
+      temp -= 60;
+      path += ` ${temp} L ${line - 40} `;
+    } else {
+      temp = point - parseInt(elem, 10);
     }
     path += ` ${temp} L ${line + 10} `;
     line += 50;
@@ -37,6 +42,7 @@ function createLines(arr, element) {
 
 function drawSvgGraphic(arr) {
   const svgGraphic = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  // svgGraphic.setAttribute('viewBox', '0 0 100 100');
   svgGraphic.setAttribute('height', 200);
   svgGraphic.setAttribute('width', 1200);
   createLines(arr, svgGraphic);
