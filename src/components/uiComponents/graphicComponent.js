@@ -39,14 +39,7 @@ function createLines(arr, element) {
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('cx', textLine);
     circle.setAttribute('cy', temp);
-    circle.setAttribute('r', 4);
-    circle.setAttribute('fill', 'red');
-    circle.addEventListener('mouseover', (event) => {
-      event.target.setAttribute('r', 10);
-    });
-    circle.addEventListener('mouseleave', (event) => {
-      event.target.setAttribute('r', 4);
-    });
+    circle.setAttribute('r', 6);
     element.append(textVector, circle, hLine, tinyLinesContainer, hoursLinesContainer);
     textLine += 50;
   });
