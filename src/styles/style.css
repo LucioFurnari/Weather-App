@@ -91,6 +91,11 @@ svg path {
 	stroke-width: 2;
 	fill: none;
 }
+svg circle {
+	stroke-width: 2;
+	stroke: var(--strokeGray);
+	fill: transparent;
+}
 svg g path {
 	stroke: var(--strokeGray);
 }
