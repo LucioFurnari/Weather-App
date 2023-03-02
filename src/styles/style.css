@@ -56,6 +56,8 @@ table {
 	--cardBackground: rgba(255,255,255,0.5);
 	--cardShadow: rgba(0, 0, 0, 0.25);
 	--cardBorder: rgba(255, 255, 255, 0.3);
+	--strokeBlack: rgb(25,25,25);
+	--strokeGray: rgb(100,100,100);
 }
 
 
@@ -81,11 +83,16 @@ nav {
 }
 svg {
 	display: block;
+	margin-bottom: 2rem;
+	border: 1px solid var(--strokeGray);
 }
 svg path {
-	stroke: black;
+	stroke: var(--strokeBlack);
 	stroke-width: 2;
 	fill: none;
+}
+svg g path {
+	stroke: var(--strokeGray);
 }
 svg text {
 	font-size: 1.2rem;
