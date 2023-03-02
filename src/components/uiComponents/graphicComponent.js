@@ -14,22 +14,7 @@ function createLines(arr, element) {
   let textLine = 10;
   element.append(pathVector);
   arr.forEach((elem) => {
-    let temp = svgHeight - parseInt(elem, 10);
-    if (elem > 10 && elem < 15) {
-      temp -= 30;
-      path += ` ${temp} L ${line - 40} `;
-    } else if (elem > 25) {
-      temp -= 60;
-      path += ` ${temp} L ${line - 40} `;
-    } else if (elem > 30 && elem < 35) {
-      temp -= 100;
-      path += ` ${temp} L ${line - 40} `;
-    } else if (elem >= 35) {
-      temp -= 120;
-      path += ` ${temp} L ${line - 40} `;
-    } else {
-      temp = svgHeight - parseInt(elem, 10);
-    }
+    const temp = svgHeight - (svgHeight - parseInt(((svgHeight / parseInt(elem, 10)) * 10), 10));
     tinyLinesContainer.append(createHoursLine(textLine));
     path += ` ${temp} L ${line + 10} `;
     line += 50;
