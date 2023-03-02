@@ -18,7 +18,7 @@ function createLines(arr, element) {
     if (elem > 10 && elem < 15) {
       temp -= 30;
       path += ` ${temp} L ${line - 40} `;
-    } else if (elem > 20 && elem <= 30) {
+    } else if (elem > 25) {
       temp -= 60;
       path += ` ${temp} L ${line - 40} `;
     } else if (elem > 30 && elem < 35) {
@@ -36,7 +36,7 @@ function createLines(arr, element) {
     const textVector = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     textVector.setAttribute('x', textLine - 10);
     textVector.setAttribute('y', temp - 10);
-    textVector.textContent = elem;
+    textVector.textContent = parseInt(elem, 10);
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('cx', textLine);
     circle.setAttribute('cy', temp);
