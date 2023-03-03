@@ -1,3 +1,7 @@
+import humidityImage from '../../images/humidity.svg';
+import windImage from '../../images/wind.svg';
+import windDirectionImage from '../../images/arrow.svg';
+
 function conditionsComponent(humidity, windS, direction) {
   const conditionsSection = document.createElement('div');
   const humiditySection = document.createElement('div');
@@ -18,9 +22,9 @@ function conditionsComponent(humidity, windS, direction) {
   humidityPercentage.textContent = humidity;
   windSpeed.textContent = windS;
 
-  humiditySvg.src = '../src/images/humidity.svg';
-  windSvg.src = '../src/images/wind.svg';
-  windDirection.src = '../src/images/arrow.svg';
+  humiditySvg.src = humidityImage;
+  windSvg.src = windImage;
+  windDirection.src = windDirectionImage;
 
   windDirection.style = `transform: rotate(${direction}deg)`;
 
