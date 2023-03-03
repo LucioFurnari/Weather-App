@@ -6,7 +6,6 @@ function mainSection() {
   const main = document.createElement('main');
   const form = formComponent();
 
-  main.classList.add('grid');
   nav.append(form);
   root.append(nav, main);
 }
