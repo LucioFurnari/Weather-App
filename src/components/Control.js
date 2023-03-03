@@ -6,8 +6,13 @@ import drawSvgGraphic from './uiComponents/graphicComponent';
 
 async function setUiContent(location = 'Pergamino') {
   const main = document.querySelector('main');
-  const nav = document.querySelector('nav');
+  const gridContainer = document.createElement('div');
+  gridContainer.classList.add('grid');
   const loaded = loadingComponent();
+  main.classList.add('column');
+  while (main.firstChild) {
+    main.removeChild(main.firstChild);
+  }
   main.append(loaded);
 
   const data = await getData(location);
@@ -31,10 +36,13 @@ async function setUiContent(location = 'Pergamino') {
       calendarYear,
     } = data;
 
-    nav.append(drawSvgGraphic(hourlyTemperature));
-    changeBackground(weatherCode[0]);
     while (main.firstChild) {
       main.removeChild(main.firstChild);
+    }
+    main.append(drawSvgGraphic(hourlyTemperature), gridContainer);
+    changeBackground(weatherCode[0]);
+    while (gridContainer.firstChild) {
+      gridContainer.removeChild(gridContainer.firstChild);
     }
     dailyTime.forEach((day, index) => {
       const props = {
@@ -56,7 +64,7 @@ async function setUiContent(location = 'Pergamino') {
 
       const card = weatherCard(props);
       card.classList.add('loaded');
-      main.append(card);
+      gridContainer.append(card);
     });
   }
 }
