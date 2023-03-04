@@ -21,12 +21,14 @@ function createLines(arr, element) {
   hLine.setAttribute('d', 'M0 400 L 1210 400');
   let hours = 0;
   let path = 'M10';
-  const svgHeight = 600;
+  const svgHeight = 400;
   let line = 50;
   let textLine = 10;
   element.append(pathVector);
   arr.forEach((elem) => {
-    const temp = svgHeight - (svgHeight - parseInt(((svgHeight / parseInt(elem, 10)) * 10), 10));
+    const porcentage = parseInt(((svgHeight * parseInt(elem, 10)) / 100), 10);
+    const temp = (300 - porcentage);
+    console.log((parseInt(((svgHeight * parseInt(elem, 10)) / 100), 10)));
     tinyLinesContainer.append(createHoursLine(textLine).tinyLine);
     hoursLinesContainer.append(createHoursLine(textLine, hours).hoursText);
     hours += 1;
