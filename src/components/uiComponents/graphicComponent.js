@@ -6,8 +6,8 @@ function createHoursLine(width, hours) {
     hoursText.textContent = `0${hours}`;
   }
   hoursText.setAttribute('x', width - 10);
-  hoursText.setAttribute('y', 380);
-  tinyLine.setAttribute('d', `M${width} 400 L ${width} 380`);
+  hoursText.setAttribute('y', 440);
+  tinyLine.setAttribute('d', `M${width} 400 L ${width} 420`);
   return {
     tinyLine,
     hoursText,
@@ -21,7 +21,7 @@ function createLines(arr, element) {
   hLine.setAttribute('d', 'M0 400 L 1210 400');
   let hours = 0;
   let path = 'M10';
-  const svgHeight = 400;
+  const svgHeight = 450;
   let line = 50;
   let textLine = 10;
   element.append(pathVector);
@@ -52,7 +52,7 @@ function createLines(arr, element) {
 function drawSvgGraphic(arr) {
   const svgGraphic = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   // svgGraphic.setAttribute('viewBox', '0 0 100 100');
-  svgGraphic.setAttribute('height', 400);
+  svgGraphic.setAttribute('height', 450);
   svgGraphic.setAttribute('width', 1200);
   createLines(arr, svgGraphic);
   const graphicContainer = document.createElement('div');
