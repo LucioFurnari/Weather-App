@@ -28,7 +28,6 @@ function createLines(arr, element) {
   arr.forEach((elem) => {
     const porcentage = parseInt(((svgHeight * parseInt(elem, 10)) / 100), 10);
     const temp = (300 - porcentage);
-    console.log((parseInt(((svgHeight * parseInt(elem, 10)) / 100), 10)));
     tinyLinesContainer.append(createHoursLine(textLine).tinyLine);
     hoursLinesContainer.append(createHoursLine(textLine, hours).hoursText);
     hours += 1;
@@ -37,7 +36,7 @@ function createLines(arr, element) {
     const textVector = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     textVector.setAttribute('x', textLine - 10);
     textVector.setAttribute('y', temp - 10);
-    textVector.textContent = parseInt(elem, 10);
+    textVector.textContent = `${parseInt(elem, 10)}°`;
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('cx', textLine);
     circle.setAttribute('cy', temp);
@@ -53,7 +52,7 @@ function drawSvgGraphic(arr) {
   const svgGraphic = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   // svgGraphic.setAttribute('viewBox', '0 0 100 100');
   svgGraphic.setAttribute('height', 450);
-  svgGraphic.setAttribute('width', 1200);
+  svgGraphic.setAttribute('width', 1180);
   createLines(arr, svgGraphic);
   const graphicContainer = document.createElement('div');
   graphicContainer.classList.add('row');
