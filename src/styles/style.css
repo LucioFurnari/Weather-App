@@ -88,27 +88,37 @@ main {
 }
 nav {
 	width: 100%;
+	/* padding: 2rem 0; */
+}
+nav form {
 	padding: 2rem 0;
+	position: relative;
 }
 nav form input {
 	border: none;
 	background-color: var(--cardBackground);
 	color: var(--strokeBlack);
+	border-bottom: 2px solid var(--strokeBlack);
 	padding: 0.5rem;
 	backdrop-filter: blur(20px);
 	outline: none;
 }
 nav form button {
+	position: absolute;
+	right: 0;
 	border: none;
 	border-radius: 0.2rem;
-	background-color: var(--buttonBackground);
+	background-color: transparent;
 	backdrop-filter: blur(20px);
-	padding: 0.5rem;
 	font-size: 1.2rem;
 	margin-left: 0.5rem;
 }
-nav form button:hover{
-	background-color: var(--buttonHover);
+nav form button img {
+	width: 1.2rem;
+	transition: width 0.3s;
+}
+nav form button:hover img{
+	width: 1.5rem;
 }
 svg {
 	display: block;
