@@ -54,6 +54,8 @@ table {
 	--clearSky: url(../images/clear_sky.jpg);
 	--cloudSky: url(../images/clouds.jpg);
 	--cardBackground: rgba(255,255,255,0.5);
+	--buttonBackground:rgba(177, 177, 177, 0.5);
+	--buttonHover:rgba(255,255,255,0.5);
 	--cardShadow: rgba(0, 0, 0, 0.25);
 	--cardBorder: rgba(255, 255, 255, 0.3);
 	--strokeBlack: rgb(25,25,25);
@@ -86,6 +88,27 @@ main {
 }
 nav {
 	width: 100%;
+	padding: 2rem 0;
+}
+nav form input {
+	border: none;
+	background-color: var(--cardBackground);
+	color: var(--strokeBlack);
+	padding: 0.5rem;
+	backdrop-filter: blur(20px);
+	outline: none;
+}
+nav form button {
+	border: none;
+	border-radius: 0.2rem;
+	background-color: var(--buttonBackground);
+	backdrop-filter: blur(20px);
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	margin-left: 0.5rem;
+}
+nav form button:hover{
+	background-color: var(--buttonHover);
 }
 svg {
 	display: block;
