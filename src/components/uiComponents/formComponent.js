@@ -5,6 +5,7 @@ function formComponent() {
 
   cityForm.classList.add('card-form');
   cityInput.classList.add('card-input');
+  cityInput.required = 'true';
   submitButton.textContent = 'Submit';
   cityForm.append(cityInput, submitButton);
 
