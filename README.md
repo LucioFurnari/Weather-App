@@ -20,10 +20,9 @@ Libraries:
 
 Features:
 -
-- You can enter the name for the two players.
-- Can see the result of the match.
-- It has a counter for games won.
-- A button for reset the game.
+- Show weather conditions of 7 days from the day that the search is done.
+- Visual svg graphic show temperatures of all the hours of the day.
+- The background and icons change depending of the weather.
 <!-- ❌ ✔️ ⭕ ❓ -->
 TODO:
 - When the page is loaded show the data of the current city. ✔️
