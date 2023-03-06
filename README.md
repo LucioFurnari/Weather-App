@@ -18,29 +18,34 @@ Libraries:
 TODO:
 - When the page is loaded show the data of the current city. ✔️
 
-- Organize the data from the new api. ⭕
+- Change the color of the card depending of the weather. ❌
+
 - Prevent to submit a wrong city name or empty input. ⭕
-- Create weather card for each day get from the api. ✔️
-  - Organize the data in the weather card for the actual time or (select time). ⭕
-- Add a icon that show the current weather. ⭕
 
-- Create a graphics that show the temperature of all the day. ❌
-  - Use svg path to add and connects lines.
-  - For each hour of the day ( x axis ) and temperature ( y axis ), 
-  - Start in the 00 of the day and end in the 24 h.
-
-- Create a input where the user can enter a city name. ✔️
-  - When the user submit the name, fetch to the api with that name. ✔️
-
+- Make the svg graphic responsive
+  - Depending of the windows width, add a event that change the width and show only temperature 
+    between 4 or 5 hours.
 - Add a button to change celsius to Fahrenheit or Celsius. ❌
   - Save the value of the temperature in a variable.
   - When the button is pushed convert the celsius temperature to Fahrenheit,
   and change the content of the ui.
   - If change to celsius call again the same variable and change the ui.
 
+- Organize the data from the new api. ✔️
+- Create weather card for each day get from the api. ✔️
+  - Organize the data in the weather card for the actual time or (select time). ✔️
+- Add a icon that show the current weather. ✔️
+
+- Create a graphics that show the temperature of all the day. ✔️
+  - Use svg path to add and connects lines. 
+  - For each hour of the day ( x axis ) and temperature ( y axis ), 
+  - Start in the 00 of the day and end in the 24 h.
+
+- Create a input where the user can enter a city name. ✔️
+  - When the user submit the name, fetch to the api with that name. ✔️
+
 - Change the background according to the weather. ✔️
 
-- Change the color of the card depending of the weather. ❌
 
 - Make responsive the page. ❌
 <!-- ❌ ✔️ ⭕ ❓ -->
