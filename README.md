@@ -1,6 +1,7 @@
 # Weather-App
 
-Technology used:
+Technologies used:
+-
 - HTML
 - CSS
 - JS
@@ -8,12 +9,21 @@ Technology used:
 - Webpack
 
 API used: 
+-
 - openweathermap/geocoding-api
 - open-meteo
 
 Libraries:
+-
 - weather-icons ( erikflowers ) https://github.com/erikflowers/weather-icons
 
+
+Features:
+-
+- You can enter the name for the two players.
+- Can see the result of the match.
+- It has a counter for games won.
+- A button for reset the game.
 <!-- ❌ ✔️ ⭕ ❓ -->
 TODO:
 - When the page is loaded show the data of the current city. ✔️
