@@ -7,8 +7,8 @@ function formComponent() {
   const submitButton = document.createElement('button');
   const buttonImage = document.createElement('img');
 
-  cityForm.classList.add('card-form', 'row');
-  cityInput.classList.add('card-input');
+  cityForm.classList.add('city-form');
+  cityInput.classList.add('form-input');
   cityInput.placeholder = 'City name';
   cityInput.required = 'true';
   messageSpan.classList.add('form-message');
