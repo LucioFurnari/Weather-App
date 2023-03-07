@@ -71,8 +71,13 @@ async function setUiContent(location = 'Pergamino') {
 
 async function searchCity(e) {
   const cardInput = document.querySelector('.card-input');
+  const reg = /([A-Z])\w+/g;
   e.preventDefault();
-  setUiContent(cardInput.value);
+  if (reg.test(cardInput.value)) {
+    setUiContent(cardInput.value);
+  } else {
+    console.error('Incorrect Input');
+  }
 }
 
 function loadUiContent() {
