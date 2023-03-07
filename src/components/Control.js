@@ -71,8 +71,8 @@ async function setUiContent(location = 'Pergamino') {
 
 async function searchCity(e) {
   const formInput = document.querySelector('.form-input');
-  const inputValue = formInput.value.replace(/\s/g, '').trim();
-  const reg = /^[a-zA-Z]+$/g;
+  const inputValue = formInput.value.trim();
+  const reg = /^[a-zA-Z ]+$/g;
   e.preventDefault();
   if (reg.test(inputValue)) {
     setUiContent(inputValue);
