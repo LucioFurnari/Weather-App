@@ -67,6 +67,9 @@ body{
 	box-sizing: border-box;
 	font-family: 'Nanum Gothic', sans-serif;
 	background-image: url(../images/clear_sky.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 #root {
 	display: flex;
@@ -77,8 +80,7 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	min-height: 100vh;
-	/* min-height: fill-available; */
+	height: 100%;
 }
 main {
 	width: 100%;
@@ -103,20 +105,22 @@ nav {
 }
 .form-button {
 	position: absolute;
-	right: 0;
+	right: 0; 
+	display: inline;
 	border: none;
 	border-radius: 0.2rem;
 	background-color: transparent;
-	backdrop-filter: blur(20px);
+	background-image: url(../images/magnify.svg);
+	background-position: center;
+	background-repeat: no-repeat;
 	font-size: 1.2rem;
+	padding: 1rem;
 	margin-left: 0.5rem;
+	transition: padding 0.3s;
 }
-.form-button img {
-	width: 1.2rem;
-	transition: width 0.3s;
-}
-.form-button:hover img{
+.form-button:hover{
 	width: 1.5rem;
+	padding: 1.2rem;
 }
 svg {
 	display: block;
