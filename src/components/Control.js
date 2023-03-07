@@ -70,11 +70,12 @@ async function setUiContent(location = 'Pergamino') {
 }
 
 async function searchCity(e) {
-  const cardInput = document.querySelector('.card-input');
-  const reg = /([A-Z])\w+/g;
+  const formInput = document.querySelector('.form-input');
+  const inputValue = formInput.value.replace(/\s/g, '').trim();
+  const reg = /^[a-zA-Z]+$/g;
   e.preventDefault();
-  if (reg.test(cardInput.value)) {
-    setUiContent(cardInput.value);
+  if (reg.test(inputValue)) {
+    setUiContent(inputValue);
   } else {
     console.error('Incorrect Input');
   }
@@ -82,7 +83,7 @@ async function searchCity(e) {
 
 function loadUiContent() {
   setUiContent();
-  const cityForm = document.querySelector('.card-form');
+  const cityForm = document.querySelector('.city-form');
   cityForm.addEventListener('submit', searchCity);
 }
 export default loadUiContent;
