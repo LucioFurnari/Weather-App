@@ -64,7 +64,6 @@ table {
 
 
 body{
-	/* min-height: 100vh; */
 	box-sizing: border-box;
 	font-family: 'Nanum Gothic', sans-serif;
 	background-image: url(../images/clear_sky.jpg);
@@ -79,8 +78,7 @@ body{
 	background-size: cover;
 	background-position: center;
 	min-height: 100vh;
-	min-height: fill-available;
-	min-height: -webkit-fill-available;
+	/* min-height: fill-available; */
 }
 main {
 	width: 100%;
@@ -90,11 +88,11 @@ nav {
 	width: 100%;
 	/* padding: 2rem 0; */
 }
-nav form {
+.city-form {
 	padding: 2rem 0;
 	position: relative;
 }
-nav form input {
+.form-input {
 	border: none;
 	background-color: var(--cardBackground);
 	color: var(--strokeBlack);
@@ -103,7 +101,7 @@ nav form input {
 	backdrop-filter: blur(20px);
 	outline: none;
 }
-nav form button {
+.form-button {
 	position: absolute;
 	right: 0;
 	border: none;
@@ -113,11 +111,11 @@ nav form button {
 	font-size: 1.2rem;
 	margin-left: 0.5rem;
 }
-nav form button img {
+.form-button img {
 	width: 1.2rem;
 	transition: width 0.3s;
 }
-nav form button:hover img{
+.form-button:hover img{
 	width: 1.5rem;
 }
 svg {
@@ -170,7 +168,7 @@ svg text {
 	background-color: var(--cardBackground);
 	border: 1px solid var(--cardBorder);
 	border-radius: 8px;
-	box-shadow: 0px 1px 12px var(--cardShadow);
+	/* box-shadow: 0px 1px 12px var(--cardShadow); */
 	opacity: 0;
 	transition: opacity 0.3s;
 }
