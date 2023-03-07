@@ -8,6 +8,7 @@ function formComponent() {
 
   cityForm.classList.add('card-form', 'row');
   cityInput.classList.add('card-input');
+  cityInput.placeholder = 'City name';
   cityInput.required = 'true';
   submitButton.append(buttonImage);
   buttonImage.src = SearchIcon;
