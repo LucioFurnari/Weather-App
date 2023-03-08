@@ -79,7 +79,7 @@ async function setUiContent(location = 'Pergamino') {
         }
         main.append(drawSvgGraphic(getTempForHour(
           hourlyTemperature,
-          event.target.dataset.id,
+          event.target.closest('.card').dataset.id,
         )), gridContainer);
       });
       gridContainer.append(card);
