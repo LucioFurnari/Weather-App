@@ -28,13 +28,13 @@ async function getData(location) {
   const {
     time,
     temperature_2m: hourlyTemperature,
-    temperature_2m: actualTemperature,
     apparent_temperature: apparentTemperature,
     weathercode: weatherCode,
     winddirection_10m: windDirection,
     windspeed_10m: windSpeed,
     relativehumidity_2m: humidity,
   } = data.hourly;
+  console.table(hourlyTemperature);
   const {
     time: dailyTime,
     temperature_2m_max: dailyTempMax,
@@ -54,7 +54,7 @@ async function getData(location) {
     name,
     state,
     hourlyTemperature: getTempForHour(hourlyTemperature),
-    actualTemperature: getActualData(actualTemperature, actualTime),
+    actualTemperature: getActualData(hourlyTemperature, actualTime),
     apparentTemperature: getActualData(apparentTemperature, actualTime),
     weatherCode: getActualData(weatherCode, actualTime),
     windDirection: getActualData(windDirection, actualTime),
@@ -70,7 +70,6 @@ async function getData(location) {
     numberDate,
     calendarYear,
   };
-  console.table(newData);
   return newData;
 }
 
