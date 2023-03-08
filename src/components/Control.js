@@ -4,6 +4,14 @@ import loadingComponent from './uiComponents/loadingComponent';
 import weatherCard from './uiComponents/cardComponent';
 import drawSvgGraphic from './uiComponents/graphicComponent';
 
+function getTempForHour(arr, index = 0) {
+  const arrOfDays = [24, 48, 72, 96, 120, 144, 168];
+  const newArr = [];
+  for (let i = arrOfDays[index] - 24; i < arrOfDays[index]; i += 1) {
+    newArr.push(arr[i]);
+  }
+  return newArr;
+}
 async function setUiContent(location = 'Pergamino') {
   const main = document.querySelector('main');
   const gridContainer = document.createElement('div');
@@ -39,7 +47,7 @@ async function setUiContent(location = 'Pergamino') {
     while (main.firstChild) {
       main.removeChild(main.firstChild);
     }
-    main.append(drawSvgGraphic(hourlyTemperature), gridContainer);
+    main.append(drawSvgGraphic(getTempForHour(hourlyTemperature)), gridContainer);
     changeBackground(weatherCode[0]);
     while (gridContainer.firstChild) {
       gridContainer.removeChild(gridContainer.firstChild);
@@ -64,6 +72,16 @@ async function setUiContent(location = 'Pergamino') {
 
       const card = weatherCard(props);
       card.classList.add('loaded');
+      card.dataset.id = index;
+      card.addEventListener('click', (event) => { // Evento para dibujar svg por card clickead.
+        while (main.firstChild) {
+          main.removeChild(main.firstChild);
+        }
+        main.append(drawSvgGraphic(getTempForHour(
+          hourlyTemperature,
+          event.target.dataset.id,
+        )), gridContainer);
+      });
       gridContainer.append(card);
     });
   }
