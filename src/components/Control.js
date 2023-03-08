@@ -71,12 +71,14 @@ async function setUiContent(location = 'Pergamino') {
       };
 
       const card = weatherCard(props);
-      card.classList.add('loaded');
       card.dataset.id = index;
       card.addEventListener('click', (event) => { // Evento para dibujar svg por card clickead.
+        const cardList = document.querySelectorAll('.card');
+        cardList.forEach((elem) => elem.classList.remove('selected'));
         while (main.firstChild) {
           main.removeChild(main.firstChild);
         }
+        card.classList.add('selected');
         main.append(drawSvgGraphic(getTempForHour(
           hourlyTemperature,
           event.target.closest('.card').dataset.id,
