@@ -93,10 +93,12 @@ async function setUiContent(location = 'Pergamino') {
       const fahrenheit = actualTemperature.map((item) => parseInt((item * 1.8) + 32, 10));
       if (!scaleFlag) {
         fahrenheit.forEach((item, index) => {
-          listOFTempSection[index].textContent = `${item} F°`;
+          tempScaleButton.textContent = '°C';
+          listOFTempSection[index].textContent = `${item} °F`;
         });
       } else {
-        actualTemperature.forEach((item, index) => { listOFTempSection[index].textContent = `${item} C°`; });
+        tempScaleButton.textContent = '°F';
+        actualTemperature.forEach((item, index) => { listOFTempSection[index].textContent = `${item} °C`; });
       }
       scaleFlag = !scaleFlag;
     });
