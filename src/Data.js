@@ -3,7 +3,7 @@ import {
   getHours, getDays, getDate, getMonths, monthList, dayOfTheWeek,
 } from './dateFunctions';
 
-function getActualData(arr, indexArr) {
+function getActualData(arr, indexArr) { // Devuelve las condiciones de la hora actual de cada dia.
   const newArr = [];
   arr.forEach((elem, index) => {
     indexArr.forEach((i) => {
@@ -14,19 +14,12 @@ function getActualData(arr, indexArr) {
   });
   return newArr;
 }
-function getTempForHour(arr) {
-  const newArr = [];
-  for (let i = 0; i < 24; i += 1) {
-    newArr.push(arr[i]);
-  }
-  return newArr;
-}
 async function getData(location) {
   const returnedData = await fetchAPI(location);
   const { data, geoData } = returnedData;
   const [{ country, name, state }] = geoData;
   const {
-    time,
+    time, // Cada hora de todos los dias.
     temperature_2m: hourlyTemperature,
     apparent_temperature: apparentTemperature,
     weathercode: weatherCode,
@@ -34,7 +27,7 @@ async function getData(location) {
     windspeed_10m: windSpeed,
     relativehumidity_2m: humidity,
   } = data.hourly;
-  console.table(hourlyTemperature);
+  console.table(time);
   const {
     time: dailyTime,
     temperature_2m_max: dailyTempMax,
@@ -53,13 +46,13 @@ async function getData(location) {
     country,
     name,
     state,
-    hourlyTemperature: getTempForHour(hourlyTemperature),
-    actualTemperature: getActualData(hourlyTemperature, actualTime),
-    apparentTemperature: getActualData(apparentTemperature, actualTime),
-    weatherCode: getActualData(weatherCode, actualTime),
-    windDirection: getActualData(windDirection, actualTime),
-    windSpeed: getActualData(windSpeed, actualTime),
-    humidity: getActualData(humidity, actualTime),
+    hourlyTemperature, // Temperatura de cada hora de todos los dias.
+    actualTemperature: getActualData(hourlyTemperature, actualTime), // Condición actual de cada dia
+    apparentTemperature: getActualData(apparentTemperature, actualTime), // *
+    weatherCode: getActualData(weatherCode, actualTime), // *
+    windDirection: getActualData(windDirection, actualTime), //*
+    windSpeed: getActualData(windSpeed, actualTime), // *
+    humidity: getActualData(humidity, actualTime), // *
     dailyTime,
     dailyTempMax,
     dailyTempMin,
