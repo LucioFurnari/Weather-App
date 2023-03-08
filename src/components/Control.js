@@ -86,6 +86,20 @@ async function setUiContent(location = 'Pergamino') {
       });
       gridContainer.append(card);
     });
+    const tempScaleButton = document.querySelector('.change-button');
+    const listOFTempSection = document.querySelectorAll('.main-temperature');
+    let scaleFlag = false;
+    tempScaleButton.addEventListener('click', () => {
+      const fahrenheit = actualTemperature.map((item) => parseInt((item * 1.8) + 32, 10));
+      if (!scaleFlag) {
+        fahrenheit.forEach((item, index) => {
+          listOFTempSection[index].textContent = `${item} F°`;
+        });
+      } else {
+        actualTemperature.forEach((item, index) => { listOFTempSection[index].textContent = `${item} C°`; });
+      }
+      scaleFlag = !scaleFlag;
+    });
   }
 }
 
