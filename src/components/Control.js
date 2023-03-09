@@ -43,7 +43,8 @@ async function setUiContent(location = 'Pergamino') {
       numberDate,
       calendarYear,
     } = data;
-
+    const message = document.querySelector('.form-message'); // Mensaje de error
+    message.textContent = '';
     while (main.firstChild) {
       main.removeChild(main.firstChild);
     }
@@ -102,6 +103,10 @@ async function setUiContent(location = 'Pergamino') {
       }
       scaleFlag = !scaleFlag;
     });
+  } else {
+    main.removeChild(loaded);
+    const message = document.querySelector('.form-message'); // Mensaje de error
+    message.textContent = 'City not found';
   }
 }
 
