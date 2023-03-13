@@ -1,4 +1,4 @@
-import loadUiContent from './components/Control';
+import loadUiContent from './Control';
 import mainSection from './components/mainSection';
 import './styles/style.css';
 import './styles/bgClass.css';
