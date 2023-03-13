@@ -22,7 +22,9 @@ Features:
 -
 - Show weather conditions of 7 days from the day that the search is done.
 - Visual svg graphic show temperatures of all the hours of the day.
+- Select the day to show in the svg graphics.
 - The background and icons change depending of the weather.
+- Change the scale of temperature, celsius to fahrenheit and vice versa.
 <!-- ❌ ✔️ ⭕ ❓ -->
 TODO:
 - When the page is loaded show the data of the current city. ✔️
@@ -34,7 +36,7 @@ TODO:
 - Make the svg graphic responsive
   - Depending of the windows width, add a event that change the width and show only temperature 
     between 4 or 5 hours.
-- Add a button to change celsius to Fahrenheit or Celsius. ❌
+- Add a button to change celsius to Fahrenheit or Celsius. ✔️
   - Save the value of the temperature in a variable.
   - When the button is pushed convert the celsius temperature to Fahrenheit,
   and change the content of the ui.
