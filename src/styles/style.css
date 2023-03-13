@@ -60,6 +60,7 @@ table {
 	--cardBorder: rgba(255, 255, 255, 0.3);
 	--strokeBlack: rgb(25,25,25);
 	--strokeGray: rgb(100,100,100);
+	--selectedColor: rgb(96, 195, 252);
 }
 
 
@@ -182,15 +183,13 @@ svg text {
 	background-color: var(--cardBackground);
 	border-radius: 8px;
 
+	box-shadow: 6px 10px 12px var(--cardShadow);
 	cursor: pointer;
-	outline: 0px solid white;
+	/* outline: 0px solid white; */
 	transition: outline 0.5s ease-in-out; 
 }
-.card:hover {
-	box-shadow: 0px 1px 12px var(--cardShadow);
-}
 .selected {
-	outline: 4px solid white;
+	outline: 4px solid var(--selectedColor);
 }
 .card-weather {
 	text-align: center;
