@@ -50,6 +50,9 @@ table {
 /*|-----------------------------------------------------------------------------------------|*/
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
+* {
+  box-sizing: border-box;
+}
 :root {
 	--clearSky: url(../images/clear_sky.jpg);
 	--cloudSky: url(../images/clouds.jpg);
@@ -65,31 +68,34 @@ table {
 
 
 body{
-	/* box-sizing: border-box; */
 	font-family: 'Nanum Gothic', sans-serif;
-	background-image: url(../images/clear_sky.jpg);
+	/* background-image: url(../images/clear_sky.jpg); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 #root {
-	display: flex;
-	flex-direction: column;
+	display: grid;
 	justify-content: center;
 	align-items: center;
 
+	grid-template-columns: 1fr;
+	grid-template-rows: 100px 4fr ;
+	grid-template-areas: "nav"
+											"main"
+	;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	min-height: 100vh;
 }
 main {
+	grid-area: main;
 	width: 100%;
-	height: 100%;
+
 }
 nav {
+	grid-area: nav;
 	width: 100%;
-	/* padding: 2rem 0; */
 }
 .change-button {
 	padding: 0.5rem;
@@ -137,6 +143,7 @@ svg {
 	display: block;
 	margin-bottom: 2rem;
 	border: 1px solid var(--strokeGray);
+	width: 100%;
 }
 svg path {
 	stroke: var(--strokeBlack);
@@ -167,7 +174,7 @@ svg text {
 }
 .grid {
 	display: grid;
-	grid-template-columns:  repeat(auto-fill, minmax(200px, 1fr));
+	grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
 	justify-items: center;
 	width: 100%;
 	gap: 1rem;
