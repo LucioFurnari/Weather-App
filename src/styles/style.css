@@ -69,10 +69,10 @@ table {
 
 body{
 	font-family: 'Nanum Gothic', sans-serif;
-	/* background-image: url(../images/clear_sky.jpg); */
+
+	background-image: var(--clearSky);
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center;
 }
 #root {
 	display: grid;
