@@ -1,5 +1,5 @@
 function changeBackground(weather) {
-  const root = document.querySelector('#root');
+  const root = document.querySelector('body');
   const currentClass = (root.className === '') ? 'empty' : root.className;
   switch (weather) {
     case 0:
