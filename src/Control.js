@@ -17,23 +17,30 @@ let listener;
 function changeScale(event, arr) {
   const { target } = event;
   const listOFTempSection = document.querySelectorAll('.main-temperature');
-  if (listOFTempSection.length > 0) {
+  const listOfMinTemp = document.querySelectorAll('.min-temp');
+  const listOfMaxTemp = document.querySelectorAll('.max-temp');
+  if (listOFTempSection.length) {
     const fahrenheit = arr.map((item) => parseInt((item * 1.8) + 32, 10));
     if (!scaleFlag) {
       fahrenheit.forEach((item, index) => {
         target.textContent = '°C';
         listOFTempSection[index].textContent = `${item} °F`;
+        listOfMinTemp[index].textContent = `${item} °F Min`;
+        listOfMaxTemp[index].textContent = `${item} °F Max`;
       });
     } else {
       target.textContent = '°F';
-      arr.forEach((item, index) => { listOFTempSection[index].textContent = `${item} °C`; });
+      arr.forEach((item, index) => {
+        listOFTempSection[index].textContent = `${item} °C`;
+        listOfMinTemp[index].textContent = `${item} °C Min`;
+        listOfMaxTemp[index].textContent = `${item} °C Max`;
+      });
     }
     scaleFlag = !scaleFlag;
   }
 }
 function addListener(arr, flag) {
   const tempScaleButton = document.querySelector('.change-button');
-  console.log(scaleFlag);
   if (scaleFlag) {
     tempScaleButton.textContent = '°F';
   }
@@ -131,10 +138,13 @@ async function searchCity(e) {
   const inputValue = formInput.value.trim();
   const reg = /^[a-zA-Z ]+$/g;
   e.preventDefault();
+  // if (inputValue.value === '') {
+  //   formInput.setCustomValidity("don't leave the input empty");
+  // }
   if (reg.test(inputValue)) {
     setUiContent(inputValue);
   } else {
-    console.error('Incorrect Input');
+    formInput.setCustomValidity('Use only letters');
   }
 }
 
