@@ -134,22 +134,28 @@ async function setUiContent(location = 'Pergamino') {
 }
 
 async function searchCity(e) {
+  e.preventDefault();
   const formInput = document.querySelector('.form-input');
   const inputValue = formInput.value.trim();
-  const reg = /^[a-zA-Z ]+$/g;
-  e.preventDefault();
-  // if (inputValue.value === '') {
-  //   formInput.setCustomValidity("don't leave the input empty");
-  // }
-  if (reg.test(inputValue)) {
-    setUiContent(inputValue);
-  } else {
-    formInput.setCustomValidity('Use only letters');
-  }
+  setUiContent(inputValue);
 }
 
 function loadUiContent() {
   setUiContent();
+  const formInput = document.querySelector('.form-input');
+  if (formInput.validity.valueMissing) {
+    formInput.setCustomValidity("Don't leave the input empty");
+  }
+  formInput.addEventListener('input', (ev) => {
+    const input = ev.target;
+    const reg = /^[a-zA-Z ]+$/g;
+    const isValid = reg.test(input.value.trim());
+    if (!isValid) {
+      input.setCustomValidity('Use only alphabetic characters');
+    } else {
+      input.setCustomValidity('');
+    }
+  });
   const cityForm = document.querySelector('.city-form');
   cityForm.addEventListener('submit', searchCity);
 }
